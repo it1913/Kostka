@@ -9,7 +9,7 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -20,29 +20,28 @@
 
 <body>
     <audio id="kostkaZvuk">
-        <source src="kostka.mp3" type="audio/mp3">
+        <source src="sound/kostka.mp3" type="audio/mp3">
     </audio>
     <div class="container">
-        <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-                <h1 class="display-3 stred">Kostka</h1>
-            </div>
-        </div>
+        <h1>Kostka</h1>
         <div class="container2">
-            <figure>
+            <div id="cubeContainer">
                 <img id="kostka" src="img/kostka6.png" alt="Kostka">
-            </figure>
+            </div>
             <div id="button">
-            <button id="tlacitko">HREJ</button>
+                <button id="tlacitko" class="btn btn-primary">Hoď</button>
+            </div>
+            <div id="statistika"></div>
         </div>
-            <div id="statistika">Statistika</div>
+        <div id="historieHodu">
+
         </div>
     </div>
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Bootstrap JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="kostka.js"></script>
+    <script src="js/kostka.js"></script>
 </body>
 
 </html>
