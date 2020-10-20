@@ -2,6 +2,7 @@ const kostka = document.getElementById('kostka');
 const statistika = document.getElementById('statistika');
 const tlacitko = document.getElementById('tlacitko');
 const historie = document.getElementById('historieHodu');
+const reset = document.getElementById('reset');
 let hod = 1;
 let hody = [];
 let timer = false;
@@ -88,3 +89,14 @@ function audio(){
 function pridejDoHistorie(number){
    historie.innerHTML += `<img class="kostkaHistorie" src="img/kostka${number}.png"> `;
 }
+
+function clear(){
+    historie.innerHTML =``;
+    statistika.innerHTML = ``;
+    hod = 1;
+    hody = [];
+}
+
+reset.addEventListener('click', function () {
+    clear();
+})
