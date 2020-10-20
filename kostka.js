@@ -10,23 +10,28 @@ function animace(){
     kostka.src = 'img/kostka' + hod + '.png';
 }
 
+function stop(){
+    tlacitko.hidden=false;
+    clearInterval(timer);
+    timer = false;
+    tlacitko.innerText = 'HREJ'
+    hody.push(hod);
+    console.log(hod);
+    vypisStatistiky();
+}
+
 tlacitko.addEventListener('click', function () {
     if(!timer){
+        audio();
         timer = setInterval(animace, 50);
-        tlacitko.innerText = 'STOP'
+        tlacitko.innerText = 'Čekej...'
+        tlacitko.hidden=true;
+        setTimeout(function(){stop();}, 3000);
     }else{
-        clearInterval(timer);
-        timer = false;
-        tlacitko.innerText = 'HREJ'
-        hody.push(hod);
-        console.log(hod);
-        vypisStatistiky();
+        
     }
 })
 
-function test() {
-    return 2020;
-}
 
 function suma() {
     let sum = 0;
@@ -52,7 +57,6 @@ function max() {
     return maximum;
 }
 
-
 function vypisStatistiky() {
     statistika.innerHTML = `<p>Poslední hod: ${hod}</p>`;
     statistika.innerHTML += `<p>Počet hodů: ${hody.length}</p>`;
@@ -60,4 +64,13 @@ function vypisStatistiky() {
     statistika.innerHTML += `<p>Průměr: ${(suma() / hody.length).toFixed(2)}</p>`;
     statistika.innerHTML += `<p>Maximum: ${max()}</p>`;
     statistika.innerHTML += `<p>Minimum: ${min()}</p>`;
+}
+
+function audio(){
+    var zvuk = document.getElementById('kostkaZvuk');
+    zvuk.play();
+    window.setTimeout(function(){
+        zvuk.pause()
+        audio.currentTime = 0;
+    },3000);
 }
